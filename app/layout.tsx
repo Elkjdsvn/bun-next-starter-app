@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
 import { Route } from "@/utils/types";
 import { Navbar } from "@/components/Navbar";
+import Providers from "./providers";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -37,12 +37,14 @@ export default function RootLayout({
 
 	return (
 		<html lang="en">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
-			>
-				<Navbar routes={navbarRoutes} />
-				{children}
-			</body>
+			<Providers>
+				<body
+					className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
+				>
+					<Navbar routes={navbarRoutes} />
+					{children}
+				</body>
+			</Providers>
 		</html>
 	);
 }

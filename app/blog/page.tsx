@@ -1,10 +1,12 @@
-export default async function Blog() {
+import { TSQFetchingExample } from "@/components/TSQFetchingExample";
+
+export default function Blog() {
 	return (
 		<main className="p-12 min-h-svh h-auto flex gap-8">
-			<div>
+			<div className="">
 				<button
 					// anchor-name is not yet supported by tailwind v4
-					className="border-solid border-2 cursor-pointer p-2 rounded-2xl [anchor-name:--popover-button]"
+					className="border-solid border-2 cursor-pointer p-2 rounded-lg [anchor-name:--popover-button]"
 					// popoverTarget must match the id of the popped element
 					popoverTarget="popover-test"
 				>
@@ -17,7 +19,7 @@ export default async function Blog() {
 					// inset must be auto and the display property must be set only when the popover is open using the "open:" prefix
 					// anchors only work on positionned elements (absolute/fixed)
 					// position-anchor and the anchor() function are not yet supported by tailwind v4
-					className="bg-inherit inset-auto text-inherit border-solid border-2 p-2 rounded-2xl open:flex [position-anchor:--popover-button] absolute top-[anchor(bottom)] right-[anchor(right)] mt-4 flex-col gap-2"
+					className="bg-inherit inset-auto text-inherit border-solid border-2 p-2 rounded-2xl open:flex [position-anchor:--popover-button] absolute top-[anchor(bottom)] right-[anchor(right)] mt-4 flex-col gap-2 resize"
 				>
 					<p>This is a new div</p>
 					<button
@@ -29,6 +31,7 @@ export default async function Blog() {
 					</button>
 				</div>
 			</div>
+			<TSQFetchingExample />
 		</main>
 	);
 }
