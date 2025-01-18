@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 export function Navbar({ routes }: { routes: Route[] }) {
 	const currentPathname = usePathname();
 	return (
-		<nav className="w-full h-12 flex gap-4 p-4 fixed">
+		<nav className="w-full h-12 flex gap-4 p-4">
 			{routes.map((route) =>
 				currentPathname === route.href ? (
 					<Link
