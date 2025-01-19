@@ -1,6 +1,5 @@
 import { SuspenseExample } from "@/components/SuspenseExample";
 import { TSQFetchingExample } from "@/components/TSQFetchingExample";
-import { Suspense } from "react";
 
 export default function Blog() {
 	return (
@@ -39,7 +38,6 @@ export default function Blog() {
 			React.Suspense must be a parent of the component suspending
 			Might try with a Higher Order Component
 			*/}
-			<SuspenseExample />
 			<SuspenseExample />
 		</main>
 	);

@@ -36,14 +36,18 @@ export function SuspendingComponent() {
 					className="border border-solid border-transparent rounded px-2 py-1"
 				/>
 				<button
-					onClick={async () =>
-						await refetch({
-							cancelRefetch: true,
-						})
-					}
+					onClick={async () => await refetch()}
 					className="cursor-pointer rounded-lg border border-solid border-transparent transition-colors flex items-center justify-center gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] dark:hover:text-black text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
 				>
 					Retrieve
+				</button>
+				<button
+					onClick={() => {
+						throw new Error("Error thrown by user");
+					}}
+					className="cursor-pointer rounded-lg border border-solid border-transparent transition-colors flex items-center justify-center gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] dark:hover:text-black text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+				>
+					Throw an error
 				</button>
 			</div>
 			<div>{data ? data.message : "No data yet"}</div>
