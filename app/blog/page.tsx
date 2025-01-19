@@ -4,8 +4,8 @@ import { Suspense } from "react";
 
 export default function Blog() {
 	return (
-		<main className="p-12 min-h-svh h-auto flex gap-8">
-			<div className="">
+		<main className="p-12 min-h-svh h-auto flex flex-wrap gap-8">
+			<div className="h-fit">
 				<button
 					// anchor-name is not yet supported by tailwind v4
 					className="border-solid border-2 cursor-pointer p-2 rounded-lg [anchor-name:--popover-button]"
@@ -35,13 +35,12 @@ export default function Blog() {
 			</div>
 			<TSQFetchingExample />
 
-			{/* SuspenseExample uses TanStack's useSuspenseQuery to let React.Suspense handle loading state and React Error Boundaries handle error states
+			{/* SuspenseExample's child (SuspendingComponent) uses TanStack's useSuspenseQuery to let React.Suspense handle loading state and React Error Boundaries handle error states
 			React.Suspense must be a parent of the component suspending
 			Might try with a Higher Order Component
 			*/}
-			<Suspense fallback={<div>Loading...</div>}>
-				<SuspenseExample />
-			</Suspense>
+			<SuspenseExample />
+			<SuspenseExample />
 		</main>
 	);
 }
