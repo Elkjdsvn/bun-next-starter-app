@@ -1,4 +1,6 @@
+import { SuspenseExample } from "@/components/SuspenseExample";
 import { TSQFetchingExample } from "@/components/TSQFetchingExample";
+import { Suspense } from "react";
 
 export default function Blog() {
 	return (
@@ -32,6 +34,14 @@ export default function Blog() {
 				</div>
 			</div>
 			<TSQFetchingExample />
+
+			{/* SuspenseExample uses TanStack's useSuspenseQuery to let React.Suspense handle loading state and React Error Boundaries handle error states
+			React.Suspense must be a parent of the component suspending
+			Might try with a Higher Order Component
+			*/}
+			<Suspense fallback={<div>Loading...</div>}>
+				<SuspenseExample />
+			</Suspense>
 		</main>
 	);
 }
